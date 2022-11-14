@@ -149,7 +149,7 @@ class MyHomePageState extends State<MyHomePage> {
                 children: [
                   MaterialButton(
                     onPressed: _recorder,
-                    color: !_isListening ? Colors.grey : Colors.pink,
+                    color: !_isListening ? Colors.green : Colors.pink,
                     textColor: Colors.white,
                     shape: const CircleBorder(),
                     padding: const EdgeInsets.all(25),
@@ -168,39 +168,41 @@ class MyHomePageState extends State<MyHomePage> {
               ListView(
                 shrinkWrap: true,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      TextButton(
-                          onPressed: () {
-                            lang = 'en';
-                            setState(() {
-                              ckeckValue = !ckeckValue;
-                            });
-                          },
-                          child: const Text(
-                            'English',
-                            style: TextStyle(color: Colors.white),
-                          )),
-                      Checkbox(value: ckeckValue, onChanged: (value) {}),
-                    ],
+                  TextButton(
+                    onPressed: () {
+                      lang = 'en';
+                      setState(() {
+                        ckeckValue = true;
+                      });
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'English',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        Checkbox(value: ckeckValue, onChanged: (value) {}),
+                      ],
+                    ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      TextButton(
-                          onPressed: () {
-                            lang = 'fa';
-                            setState(() {
-                              ckeckValue = !ckeckValue;
-                            });
-                          },
-                          child: const Text(
-                            'Persian',
-                            style: TextStyle(color: Colors.white),
-                          )),
-                      Checkbox(value: !ckeckValue, onChanged: (value) {}),
-                    ],
+                  TextButton(
+                    onPressed: () {
+                      lang = 'fa';
+                      setState(() {
+                        ckeckValue = false;
+                      });
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'Persian',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        Checkbox(value: !ckeckValue, onChanged: (value) {}),
+                      ],
+                    ),
                   ),
                 ],
               )
